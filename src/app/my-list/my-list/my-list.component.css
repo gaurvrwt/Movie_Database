@@ -1,0 +1,14 @@
+.movie{
+    width: 200px;
+    height: 300px;
+    text-align: center;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(6,15%);
+    gap: 1em;
+    justify-content: center;
+}
+.movie-image >img{
+    max-width: 75%;
+}

@@ -1,0 +1,23 @@
+<main class="main-container">
+  <div class="list-container">
+    <div class="grid-container">
+      <ng-container *ngFor="let movie of myListData">
+        <div class="movie">
+          <div class="inner-part">
+            <div class="movie-image">
+              <img
+                src="https://image.tmdb.org/t/p/original/{{
+                  movie.poster_path
+                }}"
+                alt="Movie Poster"
+              />
+            </div>
+            <div class="movi-name">
+              <h3>{{ movie.title }}</h3>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</main>

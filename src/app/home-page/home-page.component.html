@@ -1,0 +1,63 @@
+<main class="hero-section">
+    <div>
+      <select [(ngModel)]="selectedDatabaseType" (change)="getHomepageData()">
+        <option value="movie">Movies</option>
+        <option value="tv">TV Series</option>
+      </select>
+      <h2>Movies</h2>
+      <!-- {{homePageData[0].title}} -->
+      <div class="row cards-wrapper">
+        <ng-container *ngFor="let movie of homePageData">
+          <div>
+            <div
+              class="movie-card"
+              style="cursor: pointer"
+              (mouseover)="mouseOverFunction(movie.id)"
+              (mouseout)="mouseOutFunction(movie.id)"
+            >
+              <div class="inner-part">
+                <div class="poster-image">
+                  <img
+                    class="poster-main"
+                    *ngIf="!backdropImage[movie.id]"
+                    src="https://image.tmdb.org/t/p/original/{{
+                      movie.poster_path
+                    }}"
+                    alt="Poster Image "
+                  />
+                  <img
+                    class="poster-backdrop"
+                    *ngIf="backdropImage[movie.id]"
+                    src="https://image.tmdb.org/t/p/original/{{
+                      movie.backdrop_path
+                    }}"
+                    alt="Backdrop Image"
+                  />
+                </div>
+                <div
+                  class="movie-info"
+                  style="text-align: center"
+                  *ngIf="backdropImage[movie.id]"
+                >
+                  <h3 class="movie-info">{{ movie.overview }}</h3>
+                </div>
+                <h3 style="text-align: center">{{ movie.title }}</h3>
+                <div style="text-align: center">
+                  <span>
+                    {{ movie.vote_average }}
+                    <i class="fa fa-star" aria-hidden="true"></i> ({{
+                      movie.vote_count
+                    }}) reviews.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="add-btn" (click)="addtoMylist(movie)">
+              Add <i class="fa fa-plus"></i>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </main>
+  
